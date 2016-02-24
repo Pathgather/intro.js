@@ -821,15 +821,6 @@
         //show the tooltip
         oldtooltipContainer.style.opacity = 1;
         if (oldHelperNumberLayer) oldHelperNumberLayer.style.opacity = 1;
-
-        //reset button focus
-        if (nextTooltipButton.tabIndex === -1) {
-          //tabindex of -1 means we are at the end of the tour - focus on skip / done
-          skipTooltipButton.focus();
-        } else {
-          //still in the tour, focus on next
-          nextTooltipButton.focus();
-        }
       }, 350);
 
     } else {
@@ -997,9 +988,6 @@
       nextTooltipButton.className = 'introjs-button introjs-nextbutton';
       skipTooltipButton.innerHTML = this._options.skipLabel;
     }
-
-    //Set focus on "next" button, so that hitting Enter always moves you onto the next step
-    nextTooltipButton.focus();
 
     //add target element position style
     targetElement.element.className += ' introjs-showElement';
