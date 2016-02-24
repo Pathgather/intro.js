@@ -226,8 +226,8 @@
             }
             _exitIntro.call(self, targetElm);
           } else {
-            //default behavior for responding to enter
-            _nextStep.call(self);
+            // NOTE: At Pathgather, we don't like advancing steps by default when pressing enter.
+            return;
           }
 
           //prevent default behaviour on hitting Enter, to prevent steps being skipped in some browsers
@@ -769,8 +769,8 @@
 
       //update or reset the helper highlight class
       oldHelperLayer.className = highlightClass;
-      //hide the tooltip
-      oldtooltipContainer.style.opacity = 0;
+      oldReferenceLayer.className = 'introjs-tooltipReferenceLayer';
+      //hide the tooltip oldtooltipContainer.style.opacity = 0;
       oldtooltipContainer.style.display = "none";
 
       if (oldHelperNumberLayer != null) {
